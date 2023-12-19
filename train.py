@@ -7,8 +7,7 @@ Dashel Ruiz Perez 12/26/2023
 # Importing libraries
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras.preprocessing.image import load_img
-from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
+from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 
@@ -88,4 +87,5 @@ model = make_model(
         learning_rate=learning_rate, input_shape=input_size
     )
 
-history = model.fit(train_ds, epochs=10, validation_data=val_ds)
+history = model.fit(train_ds, epochs=20, validation_data=val_ds, callbacks=[checkpoint])
+
