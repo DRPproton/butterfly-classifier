@@ -66,3 +66,71 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    ```
 
    Any packages installed using `pipenv install` will be available for your scripts within the virtual environment.
+
+## Run Flask API Locally and testing
+
+1. **Run Python Scripts**:
+   You can now run your Flask scripts within the Pipenv virtual environment.
+   ```bash
+   python predict.py
+   ```
+   
+2. **Test APIs**:
+   Open a new shell with the enviroment activated and run the script bellow to test the api.
+   The test_api.py file have a sample of a patiente, feel free to change the parameters to see how the changes affect the result. 
+  ```bash
+   python test_api.py
+   ```
+
+## Creating a Docker image using a Dockerfile involves several steps. Below are the commands and steps to build a Docker image from a Dockerfile:
+
+1. **Navigate to the ***deployment_code*** folder inside the main project**:
+
+2. **Build the Docker image**:
+   Use the `docker build` command to build an image based on the Dockerfile. Replace `your-image-name` with the name you want to give to your Docker image:
+
+   ```bash
+   docker build -t your-image-name .
+   ```
+
+   The `.` at the end of the command indicates that the Dockerfile is located in the current directory.
+
+3. **Check the list of Docker images**:
+   To verify that your image was successfully created, use the `docker images` command:
+
+   ```bash
+   docker images
+   ```
+   You should see your newly created image in the list.
+
+4. **Run a container from the Docker image (optional)**:
+   If you want to test your image, you can run a container based on it using the `docker run` command. Replace `your-container-name` with a name for your container:
+
+   ```bash
+   docker run -it --rm -p 9696:9696 [containerName]
+   ```
+   The `-d` flag runs the container in detached mode. You can access the running container using its name.
+
+5. **Test your application run Python Test Scripts**:
+   Open a new shell with the enviroment activated and run the script bellow.
+   ```bash
+   python test_api.py
+   ```
+> ***Due to that we are using a free version for deployment sometimes take more than 30 seconds to get the result***
+
+## Testing the live API
+1. **Open files**:
+   Open a new shell with the enviroment activated and run the script bellow.
+   Open the file test_api.py in your IDE
+   Uncomment lines 15 and 16 and comment line 19
+3. **Test your application run Python Test Scripts**:
+   Save file and run it on the shell using the command bellow.
+   ```bash
+   python test_api.py
+   ```
+> Deployed API in this address:  https://cirrhosis-outcomes-prediction.onrender.com/predict
+   
+## Deploy a Docker container in AWS Lamvda, follow these steps:
+
+
+<img width="1000" alt="" src="Screenshot 2023-12-11 at 2.24.10 PM.png" />
