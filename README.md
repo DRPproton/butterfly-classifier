@@ -14,15 +14,13 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
 
 1. Clone this repository to your local machine:
 
-   git clone https://github.com/DRPproton/Multi-Class-Prediction-of-Cirrhosis-Outcomes.git
+   git clone https://github.com/DRPproton/butterfly-classifier.git
 
-   Running a Python environment using Pipenv involves creating a virtual environment, managing dependencies, and running your Python scripts within that environment. Here are the steps to set up and run a Python environment using Pipenv:
-
-1. **Install Pipenv (if not already installed)**:
-   If you don't have Pipenv installed, you can do so using `pip`, the Python package manager. Open your terminal or command prompt and run the following command:
+1. **Install virtualenv (if not already installed)**:
+   If you don't have virtualenv installed, you can do so using `pip`, the Python package manager. Open your terminal or command prompt and run the following command:
 
    ```bash
-   pip install pipenv
+   pip install virtualenv
    ```
 
 2. **Navigate to Project Directory**:
@@ -32,14 +30,14 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    cd project_directory
    ```
 
-3. **Initialize a New Pipenv Environment and Install Dependencies**:
-   Inside your project directory, run the following command to create a new Pipenv environment and install Python packages and dependencies for your project using `pipenv install`.
+3. **Initialize a New Environment and Install Dependencies**:
+   Inside your project directory, run the following command to create a new environment and install Python packages and dependencies for your project using `pip install -r requirements.txt`.
    
    ```bash
-   pipenv install
+  python3 -m venv <virtual-environment-name>
    ```
 
-   This will add the package to your `Pipfile` and install it within the virtual environment.
+   This will add the package to your Pipfile and install it within the virtual environment.
 
 4. **Activate the Pipenv Shell** (Optional):
    If not already activated, you can activate the Pipenv shell to work within the virtual environment:
