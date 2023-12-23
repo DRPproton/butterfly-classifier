@@ -38,7 +38,7 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    ```
 
 
-4. **Activate the enviroment:
+4. **Activate the enviroment:**
 
    ```bash
       source env/bin/activate
