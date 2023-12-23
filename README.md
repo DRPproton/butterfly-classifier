@@ -37,16 +37,19 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
   python3 -m venv <virtual-environment-name>
    ```
 
-   This will add the package to your Pipfile and install it within the virtual environment.
 
-4. **Activate the Pipenv Shell** (Optional):
-   If not already activated, you can activate the Pipenv shell to work within the virtual environment:
+4. **Activate the enviroment:
 
    ```bash
-   pipenv shell
+   source env/bin/activate
    ```
+   Your terminal prompt will change to indicate that you are now working within the  virtual environment.
 
-   Your terminal prompt will change to indicate that you are now working within the Pipenv virtual environment.
+   - Install dependencies
+   ```
+   pip install -r requirements.txt
+   ```
+   
 
 5. **Run Python Scripts**:
    You can now run your Python scripts within the Pipenv virtual environment. For example, if you have a script named `my_script.py`, you can run it with:
