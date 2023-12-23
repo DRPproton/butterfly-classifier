@@ -132,5 +132,74 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    
 ## Deploy a Docker container in AWS Lamvda, follow these steps:
 
+Deploying a Docker image as a Lambda function in AWS involves several steps, including creating a Docker image, pushing it to Amazon Elastic Container Registry (ECR), and then configuring AWS Lambda to use this image. Here's a step-by-step guide to help you through the process:
+
+### 1. **Prepare Your Docker Image**
+
+First, you need to create a Docker image that contains your application and its dependencies.
+
+1. **Create a Dockerfile**: This file contains the instructions for building your Docker image. It should set up the necessary environment, install dependencies, and specify how your application will be executed.
+
+   Example Dockerfile:
+   ```Dockerfile
+   FROM public.ecr.aws/lambda/python:3.8
+
+   # Copy function code and requirements.txt
+   COPY app.py requirements.txt ./
+
+   # Install the function's dependencies
+   RUN pip install -r requirements.txt
+
+   # Set the CMD to your handler
+   CMD ["app.handler"]
+   ```
+
+2. **Build the Docker Image**: Run the Docker build command to create your Docker image.
+   ```bash
+   docker build -t my-lambda-function .
+   ```
+
+### 2. **Push the Image to Amazon ECR**
+
+Before you can deploy your Docker image to Lambda, you need to push it to Amazon Elastic Container Registry (ECR).
+
+1. **Create a Repository in ECR**: Navigate to the Amazon ECR console and create a new repository for your Docker image.
+
+2. **Authenticate Docker to Your ECR Registry**: Run the `aws ecr get-login-password` command to retrieve an authentication token and authenticate your Docker client to your registry.
+   ```bash
+   aws ecr get-login-password --region your-region | docker login --username AWS --password-stdin your-account-id.dkr.ecr.your-region.amazonaws.com
+   ```
+
+3. **Tag Your Docker Image**: Tag your image with your ECR repository's URI.
+   ```bash
+   docker tag my-lambda-function:latest your-account-id.dkr.ecr.your-region.amazonaws.com/my-lambda-function:latest
+   ```
+
+4. **Push the Image to ECR**: Push your Docker image to your newly created ECR repository.
+   ```bash
+   docker push your-account-id.dkr.ecr.your-region.amazonaws.com/my-lambda-function:latest
+   ```
+
+### 3. **Create and Configure Your Lambda Function**
+
+Now, you can create your Lambda function using the Docker image you've just pushed to ECR.
+
+1. **Open the Lambda Console**: Go to the AWS Lambda console.
+
+2. **Create a New Function**: Choose to create a new Lambda function. Select the "Container image" option as your blueprint.
+
+3. **Configure the Function**: Give your function a name and select the Docker image you pushed to ECR as the source of your Lambda function. Configure any additional settings like memory, timeout, triggers, and execution role as needed.
+
+4. **Deploy the Function**: After configuring your function, deploy it.
+
+5. **Test Your Function**: You can test your Lambda function directly in the AWS Lambda console to ensure it's working as expected.
+
+### Additional Considerations
+
+- **IAM Roles**: Ensure that your Lambda function has the necessary IAM roles and permissions to access other AWS services if needed.
+- **Environment Variables**: Set any required environment variables through the Lambda console.
+- **Networking**: Configure VPC settings if your Lambda function needs to access resources within a VPC.
+
+By following these steps, you should be able to successfully deploy a Docker-based AWS Lambda function. Remember to regularly update both your Docker image and your Lambda function configuration as your application evolves.
 
 <img width="1000" alt="" src="Screenshot 2023-12-11 at 2.24.10 PM.png" />
