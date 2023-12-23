@@ -142,16 +142,15 @@ First, you need to create a Docker image that contains your application and its 
 
    Example Dockerfile:
    ```Dockerfile
-   FROM public.ecr.aws/lambda/python:3.8
+   FROM public.ecr.aws/lambda/python:3.10
 
-   # Copy function code and requirements.txt
-   COPY app.py requirements.txt ./
-
-   # Install the function's dependencies
-   RUN pip install -r requirements.txt
-
-   # Set the CMD to your handler
-   CMD ["app.handler"]
+   RUN pip install keras-image-helper
+   RUN pip install https://github.com/alexeygrigorev/tflite-aws-lambda/raw/main/tflite/tflite_runtime-2.14.0-cp310-cp310-linux_x86_64.whl
+   
+   COPY butterfly-model.tflite .
+   COPY lambda_function.py .
+   
+   CMD [ "lambda_function.lambda_handler" ]
    ```
 
 2. **Build the Docker Image**: Run the Docker build command to create your Docker image.
