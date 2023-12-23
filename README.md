@@ -34,20 +34,20 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    Inside your project directory, run the following command to create a new environment and install Python packages and dependencies for your project using `pip install -r requirements.txt`.
    
    ```bash
-  python3 -m venv <virtual-environment-name>
+     python3 -m venv virtual-environment-name
    ```
 
 
 4. **Activate the enviroment:
 
    ```bash
-   source env/bin/activate
+      source env/bin/activate
    ```
    Your terminal prompt will change to indicate that you are now working within the  virtual environment.
 
    - Install dependencies
    ```
-   pip install -r requirements.txt
+      pip install -r requirements.txt
    ```
    
 
