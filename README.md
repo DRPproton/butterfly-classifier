@@ -8,10 +8,10 @@ which provides a predictive analysis, model construction, and selection.
 <hr />
 
 ## Python Files
-> train.py => Could be run to make the model.
-> test.py => Used to test local and live API.
-> convert-model.py => used to convert the model to TensorFlow lite.
-> lambda_function.py => used to make the model a lambda function for local and live deployment.
+> - train.py => Could be run to make the model.
+> - test.py => Used to test local and live API.
+> - convert-model.py => used to convert the model to TensorFlow lite.
+> - lambda_function.py => used to make the model a lambda function for local and live deployment.
 
 ## Installation
 
