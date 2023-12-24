@@ -96,6 +96,7 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    ```
 
 <hr />
+
 ## Testing the live API
 1. **Open files**:
    Open a new shell with the environment activated and run the script below.
