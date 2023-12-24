@@ -7,6 +7,11 @@ which provides a predictive analysis, model construction, and selection.
 
 <hr />
 
+## Python Files
+> train.py => Could be run to make the model
+> test.py => Used to test local and live API
+> convert-model.py => used to convert the model to TensorFlow lite
+> lambda_function.py => used to make the model a lambda function for local and live deployment.
 
 ## Installation
 
@@ -110,6 +115,7 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
 > Deployed API on this address:  https://19kywrz8ek.execute-api.us-east-1.amazonaws.com/butterfly-classifier/predict
 
 <hr />
+
 ## Deploy a Docker container in AWS Lamvda, follow these steps:
 
 Deploying a Docker image as a Lambda function in AWS involves several steps, including creating a Docker image, pushing it to Amazon Elastic Container Registry (ECR), and then configuring AWS Lambda to use this image. Here's a step-by-step guide to help you through the process:
