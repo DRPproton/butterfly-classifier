@@ -58,6 +58,8 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    jupyter lab
    ```
 
+
+<hr />
 ## Creating a Docker image using a Dockerfile involves several steps. Below are the commands and steps to build a Docker image from a Dockerfile:
 
 1. **Navigate to the ***deployment_code*** folder inside the main project**:
@@ -92,6 +94,7 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    python test.py
    ```
 
+<hr />
 ## Testing the live API
 1. **Open files**:
    Open a new shell with the environment activated and run the script below.
@@ -103,7 +106,8 @@ To run the Jupyter Notebook and perform the analysis, you'll need Python and som
    python test.py
    ```
 > Deployed API on this address:  https://19kywrz8ek.execute-api.us-east-1.amazonaws.com/butterfly-classifier/predict
-   
+
+<hr />
 ## Deploy a Docker container in AWS Lamvda, follow these steps:
 
 Deploying a Docker image as a Lambda function in AWS involves several steps, including creating a Docker image, pushing it to Amazon Elastic Container Registry (ECR), and then configuring AWS Lambda to use this image. Here's a step-by-step guide to help you through the process:
